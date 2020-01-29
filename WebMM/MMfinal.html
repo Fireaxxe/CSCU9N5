@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My Multimedia Examples</title>
+
+<script src="jquery.js"></script>
+
+<script>
+function clickBtn( btn )
+{
+  document.getElementById("bullet").style.animationPlayState = "paused";
+
+  var bname = "#scene" + btn;
+  $("[id^='scene']").hide();
+  $(bname).show();
+}
+
+$(document).ready(function(){
+  clickBtn('0');
+});
+</script>
+
+<style>
+
+div.stage { position: absolute; top: 20px; left: 20px; width: 640px; height: 400px;
+	background-color: Black; }
+div.menu { position: absolute; top: 5px; left: 5px;
+	width: 115px; height: 380px; background-color: CadetBlue;
+	color: white; padding: 5px; }
+div.content { position: absolute; top: 5px; left: 135px;
+	width: 490px; height: 380px;
+	background-color: Azure; padding: 5px; }
+
+button.block { display: block; padding: 5px; margin: 5px; width: 105px; }
+
+h1.welcome {font-family: Verdana, sans-serif; color: darkred;
+    text-align: center; text-shadow: 2px 2px lightgrey;
+    transition: 5s; }
+
+h1.welcome:hover{
+		transform: rotate(7200deg);
+		border-radius: 50px;
+		color: yellow;
+	}	
+	
+h2 {font-family: Verdana, sans-serif; color: darkred }
+
+p.large { font-size: 24pt;
+    font-family: Verdana, sans-serif;
+    color: darkblue;
+}
+
+p.medium { font-size: 18pt;
+    font-family: Verdana, sans-serif;
+    color: black;
+}
+
+p.small { font-size: 12pt;
+    font-family: Verdana, sans-serif;
+    color: orangered;
+	text-decoration: underline;
+}
+
+p.border { color: white;
+        background-color: navy;
+        border-width: medium;
+        border-style: inset }
+
+@keyframes animbullet {
+    0% {left: 120px; background-color: silver;}
+    50% {left: 270px; background-color: silver;}
+    90% {left: 270px; background-color: red; }
+    100% {left: 270px; background-color: red;
+          width: 30px; height: 30px;
+          border-radius: 15px;
+    }
+}
+
+#bullet { background-color: silver;
+          width: 40px; height: 20px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          position: absolute;
+          left: 120px;
+          top: 200px;
+          animation-name: animbullet;
+          animation-duration: 2s;
+          animation-fill-mode: forwards;
+          animation-play-state: paused;
+}
+</style>
+</head>
+<body>
+
+<div id="stage" class="stage">
+
+<div id="menu1" class="menu">
+<button id="btnHome" type="button" onclick="clickBtn('0')" class="block">Home</button>
+<button id="btnOne" type="button" onclick="clickBtn('1')" class="block">Slides</button>
+<button id="btnTwo" type="button" onclick="clickBtn('2')" class="block">Video</button>
+<button id="btnThree" type="button" onclick="clickBtn('3')" class="block">Canvas</button>
+<button id="btnFour" type="button" onclick="clickBtn('4')" class="block">Keyframe</button>
+<button id="btnFive" type="button" onclick="clickBtn('5')" class="block">JS Anim</button>
+<button id="btnSix" type="button" onclick="clickBtn('6')" class="block">JS Anim2</button>
+<button id="btnSeven" type="button" onclick="clickBtn('7')" class="block">JS Anim3</button>
+<button id="btnEight" type="button" onclick="clickBtn('8')" class="block">JS Anim4</button>
+<button id="btnNine" type="button" onclick="clickBtn('9')" class="block">JS Anim5</button>
+<button id="btnTen" type="button" onclick="clickBtn('10')" class="block">JS Anim6</button>
+
+	
+</div>
+
+<!-- Intro screen (scene0) -->
+<div id="scene0" class="content">
+<h1 class="welcome">WELCOME!</h1>
+<p class="medium" style="text-align: center">
+This is my test multimedia site, built using HTML5, Cascading Style Sheets (CSS) and JavaScript.
+</p>
+<p class="small" style="text-align: center;">
+Author: Constantinos Constantinou, September 2018.
+</p>
+</div>
+
+
+<!-- Scene1 -->
+<div id="scene1" class="content">
+<h2>Slide show...</h2>
+<p style="text-align: center">
+<img id="slide" src="Media/image1.jpg" width=288 height=209 alt="Image 1">
+</p>
+<button id="btnSlNxt" type="button" onclick="nextSlide()">Next</button>
+<button id="btnSlPrev" type="button" onclick="prevSlide()" disabled>Previous</button>
+<button id="btnSlAuto" type="button" onclick="runLoop()">Auto</button>
+<p id="slnum">Slide 1 of 3</p>
+</div>
+
+<script>
+var inum = 1;
+var floop = 0;
+
+function newSlide(inum)
+{
+  var iname = "Media/image" + inum + ".jpg";
+  var newimg = document.getElementById("slide");
+  newimg.setAttribute("src", iname);
+  var slidenum = "Slide " + inum + " of 3";
+  document.getElementById("slnum").innerHTML = slidenum;
+}
+
+function nextSlide()
+{
+document.getElementById("btnSlPrev").disabled = false;
+  if (inum >=3) {	
+	  //document.getElementById("btnSlPrev").disabled = true;
+	  inum = 0;
+  }
+inum = inum + 1;
+  newSlide(inum);
+}
+
+function prevSlide()
+{
+   document.getElementById("btnSlNxt").disabled = false;
+  if (inum <= 1)  {
+	  //document.getElementById("btnSlNxt").disabled = true;
+	  inum = 4;
+  }
+inum = inum - 1;
+newSlide(inum);
+}
+
+function loopSlide()
+{
+  inum = inum + 1;
+  if (inum > 3) {
+    inum = 1;
+  }
+  newSlide(inum);
+
+  if (floop == 1) {
+    setTimeout(loopSlide, 1000);
+  }
+	
+}
+
+function runLoop()
+{
+  if (floop == 0) {
+    floop = 1;
+    loopSlide();
+  } else {
+    floop = 0;
+  }
+}
+
+</script>
+
+
+<!-- Scene2 -->
+<div id="scene2" class="content">
+<h2>A Video...</h2>
+<p style="text-align: center">
+<video id="vid" width="423" height="240" src="Media/LMFAO.mp4" controls></video>
+</p>
+<button onclick="document.getElementById('vid').play();">Play</button>
+<button onclick="document.getElementById('vid').pause();">Pause</button>
+<button onclick="document.getElementById('vid').load();">Rewind</button>
+</div>
+
+
+<!-- Scene3 -->
+<div id="scene3" class="content">
+<h2>Canvas Graphics...</h2>
+
+<canvas id="myCanvas" width="400" height="280"
+style="border:3px solid black; margin-left: 45px;">
+	
+</canvas>
+	</div>
+<script>
+	// geting canvas by id c
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        //chinese characters - taken from the unicode charset
+        var matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()<>€£¥[]{}+=-~「」[]《《》》【】∥／／＼＼۞ᚙ᳀爼�۝₻₪゜༺《︽︾》္ౖ༘࿆̐֟឴ᢆᬼ҉⃠︀҈ೋြ︴﹎Ω",
+        //converting the string into an array of single characters
+        matrix = matrix.split("");
+
+        var font_size = 10;
+        var columns = c.width/font_size; //number of columns for the rain
+        //an array of drops - one per column
+        var drops = [];
+        //x below is the x coordinate
+        //1 = y co-ordinate of the drop(same for every drop initially)
+        for(var x = 0; x < columns; x++)
+            drops[x] = 1; 
+
+        //drawing the characters
+        function draw()
+        {
+            //Black BG for the canvas
+            //translucent BG to show trail
+            ctx.fillStyle = "rgba(0, 0, 0, 0.14)";
+            ctx.fillRect(0, 0, c.width, c.height);
+
+            ctx.fillStyle = "#0f0"; //green text
+            ctx.font = font_size + "px arial";
+            //looping over drops
+            for(var i = 0; i < drops.length; i++)
+            {
+                //a random character to print
+                var text = matrix[Math.floor(Math.random()*matrix.length)];
+                //x = i*font_size, y = value of drops[i]*font_size
+                ctx.fillText(text, i*font_size, drops[i]*font_size);
+
+                //sending the drop back to the top randomly after it has crossed the screen
+                //adding a randomness to the reset to make the drops scattered on the Y axis
+                if(drops[i]*font_size > c.height && Math.random() > 0.975)
+                    drops[i] = 0;
+                //incrementing Y coordinate
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 60);
+	</script>
+
+<!-- Scene4 -->
+<div id="scene4" class="content">
+<h2>Shoot the Cowboy...</h2>
+<p style="text-align: center">
+<img src="Media/cowboy.png" width=272 height=301 alt="A cowboy">
+</p>
+<div id="bullet" onclick="shootBullet()"></div>
+<audio id="gunshot" src="Media/gunshot.wav"></audio>
+</div>
+
+<script>
+    function shootBullet() {
+        document.getElementById("bullet").style.animationPlayState = "running";
+        document.getElementById("gunshot").play();
+    }
+</script>
+
+
+<!-- Scene5 -->
+<div id="scene5" class="content">
+<h2>Bouncing ball...</h2>
+
+<canvas id="myCanvas2" width="400" height="280"
+style="border:3px solid black; margin-left: 45px;">
+</canvas>
+</div>
+
+<script>
+var c2 = document.getElementById("myCanvas2");
+var ctx2 = c2.getContext("2d");
+            
+            function ball(x,y,radius,dx,dy,color)
+            {
+                this.x=x;
+                this.y=y;
+                this.dx=dx;
+                this.dy=dy;
+                this.radius=radius;
+                this.color=color;
+                this.draw=function(){
+                    ctx2.beginPath();
+                    ctx2.fillStyle=this.color;
+                    ctx2.strokeStyle="black";
+                    ctx2.arc(this.x,this.y,this.radius,0,2*Math.PI);
+                    ctx2.fill();
+                    ctx2.stroke();
+                    ctx2.closePath();
+                }
+                this.velocity=function(){
+                    
+                    if(this.x-this.radius<0 || this.x+this.radius>c2.width)
+                    {
+                       this.dx=-this.dx;
+                        this.color=colorlist[Math.floor(Math.random()*colorlist.length)];
+                    }
+                    if(this.y-this.radius<0 || this.y+this.radius>c2.height-this.dy)
+                    {
+                       this.dy=-this.dy*0.99;
+                    }else
+                    {
+                        this.dy+=0.5;
+                    }
+                    this.x+=this.dx;
+                    this.y+=this.dy;
+                    this.draw();
+                }
+            }
+            function animate(){
+                requestAnimationFrame(animate);
+                ctx2.clearRect(0,0,window.innerWidth,window.innerHeight);
+				//if you change window.innerWidth and
+				//window.inner height to c2.Width and 
+				//c2.Height its a completely different
+				//animation
+                for(var i=0;i<circle.length;i++)
+                {
+                    circle[i].velocity();
+                }
+            }
+            var circle=[];
+            var colorlist=["red","blue","green","yellow","skyblue","gray","orange","pink","violet","brown"];
+            function init(){
+                for(var i=0;i<200;i++)
+                {
+                    var dx=Math.random()*10;
+                    var dy=Math.random()*10;
+                    var color=colorlist[Math.floor(Math.random()*colorlist.length)];
+                    var radius=Math.random()*10+1;
+                    var x=Math.random()*(window.innerWidth-radius*2)+radius;
+                    var y=Math.random()*(window.innerHeight-radius*2)+radius;
+                    circle[i]=new ball(x,y,radius,dx,dy,color);
+                }
+            }
+            init();
+            animate();
+</script>
+		   
+</div>
+</body>
+</html>

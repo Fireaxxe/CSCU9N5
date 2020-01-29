@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+canvas {
+    position: absolute;
+}
+
+h3 {
+    position: absolute;
+    top: 30px;
+    font-family: monospace;
+    color: rgb(100, 255, 150);
+    text-align: center;
+    width: 100vw;
+}
+
+input {
+    width: calc(100vw - 40px);
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}

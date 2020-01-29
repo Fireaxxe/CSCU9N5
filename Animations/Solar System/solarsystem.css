@@ -1,0 +1,20 @@
+body {
+	background-color: white;
+	color: white;
+	font-family: Consolas;
+	font-size: 13px;
+	padding: 0;
+	margin: 0;
+}
+
+canvas {
+  background-color: black;
+}
+
+p{
+	padding:5px;
+}
+
+input{
+	max-width: 50px;
+}

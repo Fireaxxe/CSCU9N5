@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>phone</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=yes">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+    </script>
+<link href="smartphone.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="body">
+        <div class="top">
+            <div class="speaker-container">
+                <div class="speaker"></div>
+            </div>
+            <div class="front-light"></div>
+            <div class="sensor"></div>
+            <div class="camera"></div>
+        </div>
+        <div class="glass">
+            <div class="screen">
+                <div class="container">
+                    <div id="interface">
+                        <span class="sim1">Sim 1</span><br>
+                        <span class="sim2">Sim 2</span>
+                        <span class="battery"></span>
+                        <span class="network">&#128246; &#128246; </span>
+                        <div class="space"></div>
+                        <time id="time">time</time><br>
+                        <time id="date">date</time>
+                        <div class="hr"></div>
+                        <span class="chi">&#67;&#111;&#100;&#101; &#98;&#121; &#75;&#97;&#109;&#117;&#108;&#97;&#110;&#106;&#101;</span>
+                        <span class="camera-icon">&#128248;</span>
+                    </div>
+<!--end of lock screen-->            
+<!--Apps menu-->
+                    <div id="apps" class="displayOff">
+                        <table>
+                            <tr class="apps">
+                                <td id="calc-icon"><div>&#128223;</div>Calc</td>
+                                <td id="calendar-icon"><div>&#128197;</div>Calend</td>
+                                <td id="time-icon"><div>&#128338; </div>Time</td>
+                                <td id="settings-icon"><div>&#128295;</div>Settings</td>
+                            </tr>
+                            <tr class="apps">
+                                <td><div>&#128269;</a></div>Search</td>
+                                <td><div>&#127925;</div>Audio</td>
+                                <td><div>&#127748;</div>Photo</td>
+                                <td><div>&#127916;</div>Video</td>
+                            </tr>
+                            <tr class="apps">
+                                <td id="game-icon"><div>&#127918;</div>Game</td>
+                                <td><div>&#128231; </div>Mail</td>
+                                <td><div>&#128272;</div>Lock</td>
+                                <td><div>&#128193;</div>File</td>
+                            </tr>
+                            <tr class="apps">
+                                <td><div>&#128177;</div>Currency</td>
+                                <td><div>&#128230;</div>Zip</td>
+                                <td id="txtEditor-icon"><div>&#128221;</div>Txt edt</td>
+                                <td><div>&#128038; </div>t</td>
+                            </tr>
+                            <tr class="apps">
+                                <td><div>&#128140;</div>Msg</td>
+                                <td><div>&#127912;</div>Paint</td>
+                                <td><div>&#128213;</div>Reader</td>
+                                <td><div id="f">f</div>f</td>
+                            </tr>
+                        </table>
+                        <div class="b4-apps-last-row"></div>
+                        <table>
+                            <tr class="apps">
+                                <td><div>&#128222;</div></td>
+                                <td><div>&#128172;</div></td>
+                                <td><div>&#128100;</div></td>
+                                <td><div>&#127757;</div></td>
+                            </tr>
+                        </table>
+                    </div>
+<!--end of apps menu-->
+<!--Calendar-->
+                    <div class="calendar displayOff">
+                        <table id="calendar-table">
+                            <tr>
+                                <td id="cal-month" colspan="7"></td>
+                            </tr>
+                            <tr id="cal-week">    
+                            </tr>
+                        </table>
+                    </div>
+<!--end of calendar-->
+<!--Theme-->
+                    <div class="theme displayOff">
+                        <table>
+                            <tr>
+                                <td><div class="theme1" onclick="theme(1)"></div></td>
+                                <td><div class="theme2" onclick="theme(2)"></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="theme3" onclick="theme(3)"></div></td>
+                                <td><div class="theme4" onclick="theme(4)"></div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="theme5" onclick="theme(5)"></div></td>
+                                <td><div class="theme6" onclick="theme(6)"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+<!--end of theme-->
+<!--Calculator-->
+                    <div>
+                        <table id="calc" class="calc displayOff">
+                            <tr>
+                                <td id="display" colspan="4"></td>
+                            </tr>
+                            <tr>
+                                <td onclick="cl()"id="c">C</td>
+                                <td onclick="number('/')">÷</td>
+                                <td onclick="number('*')">X</td>
+                                <td onclick="bsp()"><</td>
+                            </tr>
+                            <tr>
+                                <td onclick="number(7)">7</td>
+                                <td onclick="number(8)">8</td>
+                                <td onclick="number(9)">9</td>
+                                <td onclick="number('-')">-</td>
+                            </tr>
+                            <tr>
+                                <td onclick="number(4)">4</td>
+                                <td onclick="number(5)">5</td>
+                                <td onclick="number(6)">6</td>
+                                <td onclick="number('+')">+</td>
+                            </tr>
+                            <tr>
+                                <td onclick="number(1)">1</td>
+                                <td onclick="number(2)">2</td>
+                                <td onclick="number(3)">3</td>
+                                <td id="equals" onclick="answer()" rowspan="2">=</td>
+                            </tr>
+                            <tr>
+                                <td onclick="number(0)" id="zero" colspan="2">0</td>
+                                <td onclick="number('.')" id="dot">.</td>
+                            </tr>
+                        </table>
+                    </div>
+<!-- end of calculator -->
+<!--clock-->
+                    <div class="thetime displayOff">
+                        <canvas id="canvas" width="340" height="309"></canvas>
+                    </div>
+<!--end of clock-->
+<!-- game -->
+                    <table id="game-table" class="displayOff">
+                        <tr>
+                            <td colspan="3"><canvas id="canvas1"></canvas></td>
+                        </tr>
+                        <tr>
+                            <td id="scores"></td>
+                            <td><button onclick="up()">UP</button></td>
+                            <td id="bestScores"></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="left()">LEFT</button></td>
+                            <td><button id="pause" ondblclick="restart()">Pause</button></td>
+                            <td><button onclick="right()">RIGHT</button></td>
+                        <tr>
+                            <td id="info"></td>
+                            <td><button onclick="down()">DOWN</button></td>
+                            <td id="info1"></td>
+                        </tr>
+                    </table>
+                    <p id="test"></p>
+<!--end of game-->
+<!-- keyboard -->
+                    <div id="keyboard" class="displayOff">
+                        <div id="textDisplay"> </div>
+                        <div class="keyboard">
+                            <table>
+                                <tr>
+                                    <td onclick="_char('q')">q</td><td onclick="_char('w')">w</td><td onclick="_char('e')">e</td><td onclick="_char('r')">r</td><td onclick="_char('t')">t</td><td onclick="_char('y')">y</td><td onclick="_char('u')">u</td><td onclick="_char('i')">i</td><td onclick="_char('o')">o</td><td onclick="_char('p')">p</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td onclick="_char('a')">a</td><td onclick="_char('s')">s</td><td onclick="_char('d')">d</td><td onclick="_char('f')">f</td><td onclick="_char('g')">g</td><td onclick="_char('h')">h</td><td onclick="_char('j')">j</td><td onclick="_char('k')">k</td><td onclick="_char('l')">l</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td onclick="_char('\'')">'</td><td onclick="_char('z')">z</td><td onclick="_char('x')">x</td><td onclick="_char('c')">c</td><td onclick="_char('v')">v</td><td onclick="_char('b')">b</td><td onclick="_char('n')">n</td><td onclick="_char('m')">m</td><td onclick="_char('<-')">bsp</td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td class="cap caps">ab</td><td onclick="_char(',')">,</td><td onclick="_char('&#32;')">space</td><td onclick="_char('.')">.</td><td onclick="_char('<br>')">enter</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+<!-- end of keyboard -->
+                    <div>
+                        <div id="control" class="displayOff">
+                            <span class="back">&#9665;</span>
+                            <span class="home">&#9711;</span>
+                            <span class="menu">&#9633;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom"><b>SOLOPHON</b>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+//jQuery code
+$(document).ready(function() {
+//click lock screen to display app menu
+    $("#interface").click(function() {
+        $("#apps").removeClass("displayOff");
+        $("#interface").toggleClass("displayOff");
+        $("#control").removeClass("displayOff");
+    });
+//click calc icon to display calc
+    $("#calc-icon").click(function() {
+        $(".calc").toggleClass("displayOff");
+        $(".apps").addClass("displayOff");
+    });
+//to show clock
+    $("#time-icon").click(function() {
+        $(".thetime").toggleClass("displayOff");
+        $(".apps").addClass("displayOff");
+    });
+//click to show cold mrr
+    $("#calendar-icon").click(function() {
+        $(".calendar").toggleClass("displayOff");
+        $(".apps").addClass("displayOff");
+    });
+//click to display theme options
+    $("#settings-icon").click(function() {
+        $(".theme").toggleClass("displayOff");
+        $(".apps").addClass("displayOff");
+    });
+//to display game
+        $("#game-icon").click(function() {
+                $("#game-table").toggleClass("displayOff");
+                $(".apps").addClass("displayOff");
+        });
+//to display text editor and keyboard
+        $("#txtEditor-icon").click(function() {
+                $("#keyboard").toggleClass("displayOff");
+                $(".apps").addClass("displayOff");
+        });
+//click back button to display apps
+    $(".home").click(function() {
+        $(".apps").removeClass("displayOff");
+        $(".calc").addClass("displayOff");
+        $(".thetime").addClass("displayOff");
+        $(".calendar").addClass("displayOff");
+        $(".theme").addClass("displayOff");
+        $("#game-table").addClass("displayOff");
+        $("#keyboard").addClass("displayOff");
+    });
+    
+});
+//end of jQuery code
+//_____________________
+//Theme
+var theTheme;
+function theme(a) {
+    theTheme = a;
+}
+$(document).ready(function() {
+    $(".theme",theTheme).click(function() {
+        for (i = 1; i <= 6; i++) {
+            $(".screen").removeClass("theme"+i);
+        }
+        $(".screen").addClass("theme"+theTheme);
+    });
+});
+//_____________________
+//calculator
+var display = document.getElementById("display");
+display.innerHTML = "";
+var dot = "on";
+function number(a) {
+    num = a;
+    if (["+","-","*","/"].indexOf(num) != -1) {
+        dot = "on";
+    }
+    if (dot == "on") {
+        num = a;
+    }
+    if (dot == "off" && num == ".") {
+        num = "";
+    }
+    if (num == ".") {
+        dot = "off";
+    }
+    if (display.innerHTML.length < 15) {
+    display.innerHTML += num;
+    }
+}
+function answer() {
+    num = eval(display.innerHTML);
+    num = Math.abs((num).toPrecision(14));
+    display.innerHTML = num;
+}
+function cl() {
+    display.innerHTML = "";
+    dot = "on";
+}
+function bsp() {
+    num = display.innerHTML;
+    num = num.substr(0, num.length - 1);
+    display.innerHTML = num;
+}
+//_________________________
+//Clock
+var can = document.getElementById("canvas");
+var cx = can.getContext("2d");
+function dateFunc() {
+//date object
+    d = new Date();
+    yr = d.getFullYear();
+    mon = d.getMonth();
+    day = d.getDay();
+    date = d.getDate();
+    hr = d.getHours();
+    min = d.getMinutes();
+    sec = d.getSeconds();
+    ms = d.getMilliseconds();
+    monthNameShort = new Array();
+    weekDay = new Array();
+    monthName = new Array();
+    dayName = new Array();
+    weekDays = new Array();
+    today = date;
+    week = document.getElementById("cal-week");
+    addTr = document.getElementById("calendar-table");
+    monthName = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    dayName = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    monthNameShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    moon = monthNameShort[mon];
+    var dy;
+    var mnth;
+}
+function time() {
+    dateFunc();
+//clear rect
+    cx.fillStyle = "rgba(100,100,100,0.5)";
+    cx.fillRect(0,0,190,330);
+    cx.fill();
+//momement of seconds circle
+    var sec2 = sec+45+ms/1000;
+    sec2 = (sec > 59) ? sec2 - 60 : sec2;
+    var x = 95+57*Math.cos((sec2/60)*Math.PI*2);
+    var y = 130+57*Math.sin((sec2/60)*Math.PI*2);
+//watch display
+    cx.lineWidth = 3;
+    cx.beginPath();
+    cx.arc(95,130,65,Math.PI*2,false);
+    cx.strokeStyle = "white";
+    cx.stroke();
+    cx.fill();
+//drawing the seconds circle
+    cx.beginPath();
+    cx.lineWidth = 3;
+    cx.strokeStyle = "#f44";
+    cx.arc(x,y,1,Math.PI*2,false);
+    cx.stroke();
+    cx.closePath();
+//adding zero to numbers less than 10
+    hr = (hr < 10) ? "0" + hr: hr;
+    min = (min < 10) ? "0" + min: min;
+    sec = (sec < 10) ? "0" + sec: sec;
+//    date
+    cx.fillStyle = "white";
+    cx.font = "14px Monospace";
+    cx.fillText(dayName[day] + ", " + date + " " + moon ,50,235);
+//time
+    cx.lineWidth = 1;
+    cx.font = "26px Monospace";
+    cx.fillStyle = "white";
+    cx.fillText(hr + ":" + min,55,140);
+    var time = document.getElementsByTagName("time");
+    time[0].innerHTML = hr + ":" + min;
+    for (i = 0; i < 7; i++) {
+        if (i == day) {
+            dy = dayName[i];
+            break;
+        }
+    }
+    time[1].innerHTML = dy + " " + date + " " + moon;
+}
+setInterval(time, 100);
+//______________________
+//calendar
+function calendar() {
+//date object
+    dateFunc();
+    if (mon == 1 && (yr % 4) != 0 ) {
+        monthEnd = 28;
+    } else if (mon == 1) {
+        monthEnd = 29;
+    } else if ([3,5,8,10].indexOf(mon) != -1) {
+        monthEnd = 30;
+    } else {
+        monthEnd = 31;
+    }
+    //week mames
+    for (i = 0; i < 7; i++) {
+        week.innerHTML += "<td>" + dayName[i] + "</td>";
+    }
+    document.getElementById("cal-month").innerHTML = monthName[mon] + " " + yr;
+    for (i = 0; i < 6; i++) {
+        addTr.innerHTML += "<tr id='week-row"+ i +"'></tr>"
+    }
+    for(q = 0; q < 6; q++) {
+        weekDays[q] = document.getElementById(("week-row" + q));
+    }
+    for(j = 0; j < 33; j++) {
+        if (day <= 0) {
+            day = 7;
+        }
+        if (date <= 1) { 
+            break;
+        }
+        day--;
+        date--;
+    }
+//Dates
+    for(i = 0; i < day; i++) {
+        weekDays[0].innerHTML += "<td></td>";
+    }
+    for (i = day; i < 7; date++) {
+        if (today == date) {
+            weekDays[0].innerHTML += "<td class='today'>" + date + "</td>";
+        } else {
+            weekDays[0].innerHTML += "<td>" + date + "</td>";
+        }
+        i++;
+    }
+    for(k = 1; k < 6; k++) {
+        for (i = 0; i < 7; date++) {
+            if (date > monthEnd) {
+                weekDays[k].innerHTML += "<td></td>";
+            } else if (today == date) {
+                weekDays[k].innerHTML += "<td class='today'>" + date + "</td>";
+            } else {
+                weekDays[k].innerHTML += "<td>" + date + "</td>";
+            }
+        i++;
+        }
+    } 
+}
+calendar();
+//___________________
+//Game
+var xpause;
+var ypause;
+var bonus = 0;
+var pause = 0;
+var score = 0;
+var bestScore = 0;
+//Game instructions: Your target is to collect the golden coins to gain more scores and to slow the big ball a little bit. \n\nYou will lose if the big ball goes below the display but you must hit the big ball less frequently as it increases speed each time you hit it
+var acc = 1/3;
+var circle = {
+    radius: 25, radian: 0, x: 85, y: 0
+};
+var circle1 = {
+    radius: 5, radian: 0, x: 85, y: 100
+};
+var rect = {
+    x: 75, y: 180, width: 20, height: 20
+};
+var can1 = document.getElementById("canvas1");
+var canvas = {
+    can: can1, 
+    width: can1.width = 176, 
+    height: can1.height = 200
+};
+var ctx = canvas.can.getContext("2d");
+var ball = canvas.can.getContext("2d")
+function change() {
+    ctx.fillStyle = "rgba(160,220,160,0.2)";
+    ctx.fillRect(0,0,176,200);
+    ctx.fillStyle = "rgba(255,100,90,1)";
+    ctx.fillRect(rect.x,rect.y,rect.width,rect.height);
+//Golden ball
+    ball.beginPath();
+    ball.arc(circle1.x,circle1.y,circle1.radius,circle1.radian,Math.PI * 2);
+    ball.fillStyle = "rgba(230,150,80,1)";
+    ball.fill();
+    ball.beginPath();
+    ball.arc(circle.x,circle.y,circle. radius,circle.radian,Math.PI * 2);
+    ball.fillStyle = "rgba(120,130,140,1)";
+    ball.fill();
+//    ball.stroke();
+//big ball falling
+    circle.y += acc;
+//big ball contact with square
+    if (circle.y <= rect.y + 40 && circle.y >= rect.y - 25 && circle.x <= rect.x + 75/2 && circle.x >= rect.x - 45/2) {
+        circle.x = Math.floor(Math.random() * 125) + 25;
+        circle.y = -25;
+        acc += 0.05;
+        score += 1 + (Math.floor(acc) - 1);
+        document.getElementById("scores").innerHTML = "score " + score;
+//game over
+    } else if (circle.y > 225) {
+        bestScore = (bestScore < score) ? score: bestScore;
+    circle1.y = -25;
+    document.getElementById("scores").innerHTML = "score " + score;
+    document.getElementById("bestScores").innerHTML = "Best score " + bestScore;
+    document.getElementById("info").innerHTML = "Game over";
+    document.getElementById("pause").innerHTML = "Restart";
+    document.getElementById("info1").innerHTML = "<small><small>Double click restart</small></small>";
+    }
+//Golden ball contact with square
+    if (circle1.y <= rect.y + 25 && circle1.y >= rect.y - 10 && circle1.x <= rect.x + 25 && circle1.x >= rect.x - 10) {
+        circle1.x = Math.floor(Math.random() * 125) + 25;
+        circle1.y = Math.floor(Math.random() * 125) + 25;
+        bonus += (Math.floor(acc*10));
+        score += bonus;
+        acc -= 0.01; 
+        document.getElementById("scores").innerHTML = "score " + score;
+    }
+}
+//buttons
+function up() {
+    rect.y -= 10;
+    rect.y = (rect.y <= 0) ? 0: rect.y;
+}
+function left() {
+    rect.x -= 15;
+    rect.x = (rect.x <= 0) ? 0: rect.x;
+}
+function restart() {
+    if (circle.y >= 176) {
+        circle.y = 0;
+        circle.x = Math.floor(Math.random() * 125) + 25;
+        acc = 1;
+        bestScore = (bestScore < score) ? score: bestScore;
+        score = 0;
+        bonus = 0;
+        document.getElementById("scores").innerHTML = "score=" + score;
+        document.getElementById("bestScores").innerHTML = "Best score=" + bestScore;
+        document.getElementById("info").innerHTML = "";
+        document.getElementById("info1").innerHTML = "";
+        circle1.y = circle.y = 100;
+        document.getElementById("pause").innerHTML = "Pause";
+    } else if (pause == 0) {
+        pause = acc;
+        acc = 0;
+        ypause = rect.y;
+        xpause = rect.x;
+        rect.y += "a";
+        rect.x += "b";
+        document.getElementById("pause").innerHTML = "Resume";
+    } else if (pause != 0) {
+        acc = pause;
+        pause = 0;
+        rect.x = xpause;
+        rect.y = ypause;
+        document.getElementById("pause").innerHTML = "Pause";
+    }
+}
+function right() {
+    rect.x += 15;
+    rect.x = (rect.x >= 150) ? 150: rect.x;
+}
+function down() {
+    rect.y = 180;
+    rect.y = (rect.y >= 180) ? 180: rect.y;
+}
+setInterval(change, 30);
+//________________
+//keyboard
+var capLock = -1;
+var disp = document.getElementById("textDisplay");
+function type() {
+    disp.innerHTML = disp.innerHTML.substr(0, disp.innerHTML.length - 1);
+}
+function _char(a) {
+    var ch = a;
+    if (ch == "<-") {
+        type();
+        type();
+        disp.innerHTML += "|";
+    } else {
+        if (capLock == 1) {
+            type();
+            disp.innerHTML += ch.toUpperCase() + "|";
+        } else {
+            type();
+            disp.innerHTML += ch + "|";
+        }
+    }
+}
+$(document).ready(function() {
+    $(".cap").click(function() {
+    capLock *= -1;
+        $("#keyboard td").toggleClass("caps");
+        $(".cap").toggleClass("caps");
+        $(".cap").toggleClass("caps");
+    });
+});
+</script>
+    <div class="info">Currently only six apps <br> (on the top row, the game and text editor) are working
+    </div>
+</body>
+</html>

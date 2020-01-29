@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head><title>Page Title</title>
+<link href="timespace.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+      var canvas = document.querySelector( "canvas" );
+      var W = canvas.width = window.innerWidth;
+      var H = canvas.height = window.innerHeight;
+      var ctx = canvas.getContext( "2d" );
+      ctx.fillStyle = "rgba( 0, 0, 0, 0.3 )";
+      ctx.strokeStyle = "gold";
+      
+      var s = 10, ss = 30, k = 20;
+      
+      function transform( x, y, dt ) {
+        const d = Math.hypot( x, y );
+        const a = - 4*d / W;
+        const cos = Math.cos( a + dt/5e3 ), sin = Math.sin( a + dt/3e3 );
+        var xx = x * cos - y * sin;
+        var yy = x * sin + y * cos;
+        xx *= Math.pow(((W-a)/W), 8)/2;
+        yy *= Math.pow(((W-a)/W), 8)/2;
+        return [ xx, yy ];
+      }
+      
+      function draw() {
+        window.requestAnimationFrame( draw );
+        var h = 360 * ( Math.sin( Date.now()/3e3 )/2 + 0.5 );
+        ctx.strokeStyle = `hsl( ${ h }, 50%, 50% )`;
+        ctx.fillRect( 0, 0, W, H );
+        for( var x = -k*ss; x <= k*ss; x += ss )
+        for( var y = -k*ss; y <= k*ss; y += ss ) {
+          var dots = [ x-s/2, y-s/2, x-s/2, y+s/2, x+s/2, y+s/2, x+s/2, y-s/2 ];
+          ctx.beginPath();
+          for( var i = 0; i < dots.length; i += 2 ) {
+            const dot = transform( dots[ i ], dots[ i+1 ], Date.now() );
+            ctx.lineTo( W/2 + dot[ 0 ], H/2 + dot[ 1 ] );
+          }
+          ctx.closePath(); ctx.stroke();
+        }
+      }
+      draw();
+    </script>
+</body>
+</html>

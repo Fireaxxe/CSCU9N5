@@ -1,0 +1,264 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background-color:#ccccff;
+    margin:0;
+    overflow:hidden;
+    animation:sky 5.5s 2s forwards;
+}
+@keyframes sky {
+       
+       50% {
+           background-color:#ffd700;
+       }
+       65% {
+           background-color:#ffb90f;
+       }
+       85% {
+           background-color:#b39800;
+       }
+       100% {
+           background-color:#68228b;
+       }
+}
+.moon {
+    background-color:transparent;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    box-shadow: -20px 10px white;
+    position:absolute;
+    top:1%;
+    left:5%;
+    opacity: 0;
+    animation :night 0.8s 7s forwards;
+}
+@keyframes night {
+    100% {
+        opacity: 1;
+    }
+}
+.sun {
+    background-color:#ff8c1a;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    top:1%;
+    box-shadow:0px 0px 20px 5px #ff8c1a;
+    animation:sunset 12s forwards;
+}
+@keyframes sunset {
+    100% {
+        transform:translateY(600px);
+        opacity:0;
+    }
+}
+.box{
+    position: absolute   ;
+    width: 1920px;
+    height:300px;
+    background-color:black;
+    overflow: hidden;
+    margin:10px 0 0 ;
+    top:83%;
+     }
+.a{
+    width:160px;
+    height:150px;
+    position:absolute ;
+    background-color:black;
+    top:65%;
+    left:12%;
+}
+.b{
+    width:265px;
+    height:260px;
+    position:absolute ;
+    background-color:black;
+    top:50%;
+    left:42%;
+}
+.c{
+    width:170px;
+    height:60px;
+    position:absolute ;
+    background-color:black;
+    top:80%;
+    left:70%;
+}
+.do1 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:77%;
+    left:13%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do2 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:77%;
+    left:20%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do3 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:70%;
+    left:13%;
+    animation: on 5.5s 2s forwards;
+}
+.do4 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:70%;
+    left:20%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do5 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:53%;
+    left:45%;
+    animation: on 5.5s 2s forwards;
+}
+.do6 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:53%;
+    left:55%;
+    animation: on 5.5s 2s forwards;
+}
+.do7 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:60%;
+    left:45%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do8 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:60%;
+    left:55%;
+    animation: on 5.5s 2s forwards;
+}
+.do9 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:67%;
+    left:45%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do10 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:67%;
+    left:55%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do11 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:74%;
+    left:55%;
+    animation: on 5.5s 2s forwards;
+}
+.do12 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:74%;
+    left:45%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do13 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:81%;
+    left:55%;
+    animation: on 5.5s 2s forwards;
+}
+.do14 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:81%;
+    left:45%;
+    animation: on 5.5s 2s forwards;
+}
+.do15 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:81%;
+    left:72%;
+    animation: boxs 5.5s 2s forwards;
+}
+.do16 {
+    height:20px;
+    width:20px;
+    background-color:white;
+    position:absolute;
+    top:81%;
+    left:78%;
+    animation: on 5.5s 2s forwards;
+}
+@keyframes boxs {
+       
+       50% {
+           background-color:yellow;
+       }
+       65% {
+           background-color:gray;
+       }
+       85% {
+           background-color:black;
+       }
+       100% {
+           background-color:black;
+       }
+}
+@keyframes on {
+       
+       50% {
+           background-color:black;
+       }
+       65% {
+           background-color:black;
+       }
+       85% {
+           background-color:yellow;
+       }
+       100% {
+           background-color:yellow;
+       }
+}

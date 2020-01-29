@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My Multimedia Examples</title>
+
+<script src="jquery.js"></script>
+
+<script>
+function clickBtn( btn )
+{
+	document.getElementById("bullet").style.animationPlayState = "paused";
+	
+  var bname = "#scene" + btn;
+  $("[id^='scene']").hide();
+  $(bname).show();
+}
+
+$(document).ready(function(){
+  clickBtn('0');
+});
+</script>
+
+<style>
+div.stage { position: absolute; top: 20px; left: 20px; width: 640px; height: 400px;
+	background-color: Black; }
+div.menu { position: absolute; top: 5px; left: 5px;
+	width: 115px; height: 380px; background-color: CadetBlue;
+	color: white; padding: 5px; }
+div.content { position: absolute; top: 5px; left: 135px;
+	width: 490px; height: 380px;
+	background-color: Azure; padding: 5px; }
+
+button.block { display: block; padding: 5px; margin: 5px; width: 105px; }
+
+h1.welcome {font-family: Verdana, sans-serif; color: darkred;
+    text-align: center; text-shadow: 2px 2px lightgrey; transition: 5s; }
+
+	h1.welcome:hover{
+		transform: rotate(3600deg);
+		border-radius: 50px;
+		color: yellow;
+	}	
+	
+	h2 {font-family: Verdana, sans-serif; color: darkred }
+
+p.large { font-size: 24pt;
+    font-family: Verdana, sans-serif;
+    color: darkblue
+}
+
+p.medium { font-size: 18pt;
+    font-family: Verdana, sans-serif;
+    color: darkblue
+}
+
+p.small { font-size: 10pt;
+    font-family: Verdana, sans-serif;
+    color: orangered;
+	text-decoration: underline
+}
+	
+
+#bullet { background-color: silver;
+          width: 40px; height: 20px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          position: absolute;
+          left: 120px;
+          top: 200px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="stage" class="stage">
+
+<div id="menu1" class="menu">
+<button id="btnHome" type="button" onclick="clickBtn('0')" class="block">Home</button>
+<button id="btnOne" type="button" onclick="clickBtn('1')" class="block">Slides</button>
+<button id="btnTwo" type="button" onclick="clickBtn('2')" class="block">Video</button>
+<button id="btnThree" type="button" onclick="clickBtn('3')" class="block">Canvas</button>
+<button id="btnFour" type="button" onclick="clickBtn('4')" class="block">Keyframe</button>
+<button id="btnFive" type="button" onclick="clickBtn('5')" class="block">JS Anim</button>
+<button id="btnSix" type="button" onclick="clickBtn('6')" class="block">JS Anim</button>
+<button id="btnSeven" type="button" onclick="clickBtn('7')" class="block">JS Anim</button>
+<button id="btnEight" type="button" onclick="clickBtn('8')" class="block">JS Anim</button>
+<button id="btnNine" type="button" onclick="clickBtn('9')" class="block">JS Anim</button>
+<button id="btnTen" type="button" onclick="clickBtn('10')" class="block">JS Anim</button>	
+</div>
+	
+<!-- Intro screen (scene0) -->
+<div id="scene0" class="content">
+<h1 class="welcome">WELCOME!</h1>
+<p class="medium" style="text-align: center">
+This is my test multimedia site, built using HTML5, Cascading Style Sheets (CSS) and JavaScript.
+</p>
+<p class="small" style="text-align: center">
+Author: Constantinos Constantinou, September 2018.
+</p>
+</div>
+	
+	<!-- Slide 1 -->
+	<div id="slide1" class="content">
+<h2>Slide show...</h2>
+<p style="text-align: center">
+<img id="slide" src="Media/image1.jpg" width="288" height="209" alt="Image 1">
+</p>
+<button id="nextSlide" type="button" onclick="nextSlide()">Next</button>
+<button id="previousSlide" type="button" onclick="prevSlide()" disabled>Previous</button>
+<button id="autoSlide" type="button" onclick="runLoop()">Auto</button>
+<p id="slnum">Slide 1 of 3</p>
+</div>
+	<script>
+var slideNum = 1;
+var floop = 0;
+
+function newSlide(slideNum)
+{
+  var iname = "Media/image" + slideNum + ".jpg";
+  var newimg = document.getElementById("slide");
+  newimg.setAttribute("src", iname);
+  var slideno = "Slide " + slideNum + " of 3";
+  document.getElementById("slnum").innerHTML = slideno;
+}
+
+function nextSlide()
+{
+  slideNum = slideNum + 1;
+  newSlide(slideNum);
+  document.getElementById("btnSlPrev").disabled = false;
+  if (slideNum == 3) {
+    document.getElementById("btnSlNxt").disabled = true;
+  }
+}
+
+function prevSlide()
+{
+  slideNum = slideNum - 1;
+  newSlide(slideNum);
+  document.getElementById("btnSlNxt").disabled = false;
+  if (slideNum == 1) {
+    document.getElementById("btnSlPrev").disabled = true;
+  }
+}
+
+function loopSlide()
+{
+  slideNum = slideNum + 1;
+  if (slideNum > 3) {
+    slideNum = 1;
+  }
+  newSlide(slideNum);
+
+  if (floop == 1) {
+    setTimeout(loopSlide, 1000);
+  }
+}
+
+function runLoop()
+{
+  if (floop == 0) {
+    floop = 1;
+    loopSlide();
+  } else {
+    floop = 0;
+  }
+}
+
+</script>
+	
+	<!-- Scene2 -->
+<div id="scene2" class="content">
+<h2>A Video...</h2>
+<p style="text-align: center">
+<video id="vid" width="423" height="240" src="Media/LMFAO.mp4" controls></video>
+</p>
+<button onclick="document.getElementById('vid').play();">Play</button>
+<button onclick="document.getElementById('vid').pause();">Pause</button>
+<button onclick="document.getElementById('vid').load();">Rewind</button>
+
+</div>
+	
+	<!-- Scene3 -->
+<div id="scene3" class="content">
+<h2>Canvas Graphics...</h2>
+
+<canvas id="myCanvas" width="400" height="280"
+style="border:3px solid black; margin-left: 45px;">
+</canvas>
+</div>
+
+ <script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(0,0,400,280);
+ctx.strokeStyle = "white";
+ctx.lineWidth = 20;
+ctx.moveTo(0, 0);
+ctx.lineTo(400, 280);
+ctx.stroke();
+ctx.moveTo(0, 280);
+ctx.lineTo(400, 0);
+ctx.stroke();
+ctx.font = "italic 40px Calibri";
+ctx.fillStyle = "yellow";
+ctx.fillText("Scotland!", 120, 40);
+</script>
+	
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+a) Best (B), Medium (A), Worst (C)
+b) A
+c) A
+d) B
