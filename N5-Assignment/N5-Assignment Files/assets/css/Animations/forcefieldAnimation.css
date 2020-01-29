@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+canvas {
+    width: 100vw;
+    height: 94vh;
+    position: fixed;
+}
+
+.inputValue {
+    width: 60vw;
+    position: fixed;
+    left: 20vw;
+}
+
+#R {
+    bottom: 20px;
+}
+
+#F {
+    bottom: 50px;
+}

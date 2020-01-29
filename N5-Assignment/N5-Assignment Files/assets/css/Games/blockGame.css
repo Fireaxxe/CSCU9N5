@@ -1,0 +1,14 @@
+    body {
+      background: black;
+    }
+
+    canvas {
+      background-color: black;
+      border: 1px solid white;
+      width: 100%;
+    }
+
+    * {
+      -webkit-user-select: none;
+      /*disable text selection */
+    }

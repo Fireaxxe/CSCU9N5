@@ -1,0 +1,78 @@
+body {
+    font-size: 16px;
+    line-height: normal;
+    font-weight: 400;
+}
+
+.section-container {
+    padding-top: 120px;
+    padding-bottom: 70px;
+}
+
+.hero-block-container {
+    padding-top: 10%;
+}
+
+.hero-block-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: azure;
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bgwidth {
+    width: 100%;
+}
+
+.bgheight {
+    height: 80%;
+}
+
+.start-button {
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    left: 44%;
+    top: 70%;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+
+.start-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.start-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.start-button:hover span {
+    padding-right: 25px;
+}
+
+.start-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}

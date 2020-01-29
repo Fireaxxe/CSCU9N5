@@ -1,0 +1,248 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Roboto Black'), local('Roboto-Black'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmYUtfBBc9.ttf) format('truetype');
+}
+
+body {
+  font-family: "Roboto";
+  min-height: 100vh;
+  background-color: #4e4e4e;
+  background-image: linear-gradient(90deg, #2c2c2c 0%, #555555 55%, #2c2c2c 100%);
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 5px 0 25px;
+  letter-spacing: 1px;
+}
+
+form {
+  position: relative;
+  width: 572px;
+  margin: 60px auto 0;
+  background: white;
+  padding: 50px 70px 110px;
+  box-shadow: -20px 20px 50px -20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+form label, form select, form div, form legend {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #696885;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+}
+
+form fieldset {
+  margin-top: 30px;
+}
+
+form fieldset .message {
+  margin: 18px 0 12px;
+  color: #ff7a95;
+  opacity: 0;
+}
+
+form fieldset .message.appear {
+  opacity: 1;
+}
+
+form legend {
+  font-size: 16px;
+  color: black;
+}
+
+form .field-input {
+  position: relative;
+}
+
+form .field-input input {
+  font-size: 0;
+  color: transparent;
+  width: 100%;
+  height: 40px;
+  display: block;
+  border: none;
+  border-bottom: 2px solid #696885;
+  padding: 8px 5px;
+  margin: 5px 0 25px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+form .field-input span {
+  font-size: 16px;
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  color: black;
+  pointer-events: none;
+  overflow: hidden;
+  text-transform: none;
+}
+
+form .field-input.active label {
+  font-weight: 600;
+  color: #000000;
+}
+
+form .field-input.active input {
+  border-color: black;
+}
+
+form .field-input .message {
+  margin: -15px 0 20px;
+  color: black;
+  opacity: 0;
+}
+
+form .field-input .message.appear {
+  opacity: 1;
+}
+
+form .field-password .error {
+  color: red;
+  margin: -15px 0 20px;
+  opacity: 0;
+}
+
+form .field-password .error.appear {
+  opacity: 1;
+}
+
+form .field-select .select-field {
+  margin-top: 10px;
+}
+
+form .field-select select {
+  margin-left: 10px;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  border: none;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+
+form .field-select #currentColor {
+  width: 19px;
+  height: 17px;
+  display: inline-block;
+  border: 1px solid gray;
+  float: left;
+  opacity: 0;
+}
+
+form .field-select #currentColor.appear {
+  opacity: 1;
+}
+
+form .field-radio input {
+  display: none;
+}
+
+form .field-radio label {
+  position: relative;
+  display: block;
+  padding-left: 26px;
+  cursor: pointer;
+}
+
+form .field-radio label span {
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  transition: all 0.1s ease;
+}
+
+form .field-radio label.click span {
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+  background-color: black;
+}
+
+form .field-radio label:hover span {
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+  background-color: lightgray;
+}
+
+form .field-amazing {
+  margin-top: 20px;
+}
+
+form .field-amazing input {
+  display: none;
+}
+
+form #amazing-text {
+  position: relative;
+  display: block;
+  padding-left: 26px;
+  cursor: pointer;
+}
+
+form #amazing-text span {
+  position: absolute;
+  left: 0;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  transition: all 0.1s ease;
+}
+
+form #amazing-text.checked span {
+  box-shadow: inset 0px 0px 0px 2px #ffffff;
+  background-color: black;
+}
+
+form .button {
+  position: absolute;
+  width: 136px;
+  bottom: 35px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  color: white;
+  background-color: #ff9a8b;
+  background-image: linear-gradient(90deg, #ff9a8b 0%, #ff6a88 55%, #ff99ac 100%);
+  border: 1px solid white;
+  outline: none;
+  margin: 50px auto 0;
+  border-radius: 40px;
+  display: block;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+form .button.broken {
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg);
+  padding: 15px 36px;
+  opacity: 0.5;
+  pointer-events: none;
+}

@@ -1,0 +1,185 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  background: url(../img/bg_services.png);
+}
+
+.wrap {
+  width: 960px;
+  margin: 50px auto;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #ecf0f1;
+  overflow: hidden;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.wrap h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Dosis', sans-serif;
+  margin-top: 0px;
+}
+
+.wrap h1.background {
+  position: relative;
+  z-index: 1;
+}
+
+.wrap h1.background:before {
+  border-top: 2px solid #bdc3c7;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.wrap h1.background span {
+  background: #ecf0f1;
+  padding: 0 15px;
+}
+
+.rowService {
+  width: 100%;
+  float: left;
+  color: #FFF;
+  margin: 15px auto;
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  border-radius: none;
+  transition: all 3s;
+}
+
+.rowService.bluService {
+  background-color: #3498db;
+}
+
+.rowService.asfaltService {
+  background-color: #34495e;
+}
+
+.rowService.redService {
+  background-color: #e74c3c;
+}
+
+.rowService .overlayService {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.7);
+  width: 0;
+  -webkit-transition: width 1s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 1s;
+}
+
+.rowService .iconService {
+  width: 20%;
+  color: #FFF;
+  box-sizing: border-box;
+  padding: 20px;
+  float: left;
+}
+
+.rowService .contentService {
+  float: left;
+  width: 60%;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-left: 30px;
+}
+
+.rowService .contentService h2 {
+  font-size: 40px;
+  margin-top: 35px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.rowService .contentService h4 {
+  font-size: 35px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: #FFF;
+  font-weight: normal;
+}
+
+.rowService .arrowService {
+  width: 20%;
+  box-sizing: border-box;
+  float: left;
+  padding: 20px;
+  padding-top: 10px;
+  text-align: center;
+  transition: all 1s ease 0s;
+  transform: rotate(0deg);
+}
+
+.rowService .arrowService .fa {
+  font-size: 115px;
+  vertical-align: middle;
+  transition: all 1s ease 0s;
+}
+
+.linkService:hover .overlayService {
+  width: 80%;
+}
+
+.linkService:hover .arrowService {
+  transform: rotate(360deg);
+  padding: 0;
+}
+
+.linkService:hover .arrowService .fas {
+  font-size: 150px;
+}
+
+.iconService .fas {
+  font-size: 115px;
+  vertical-align: middle;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1024px) {
+  .wrap {
+    width: 90%;
+  }
+  .iconService .fas {
+    font-size: 90px;
+  }
+  .rowService .contentService {
+    padding-left: 50px;
+  }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .wrap {
+    width: 90%;
+  }
+  .rowService {
+    height: auto;
+  }
+  .rowService .iconService {
+    width: 100%;
+    text-align: center;
+  }
+  .rowService .arrowService {
+    display: none;
+  }
+}

@@ -1,0 +1,37 @@
+body {
+    margin: 0px;
+    background-color: grey;
+    background: radial-gradient(#00425D, #001628) !important;
+}
+
+canvas {
+    margin: 0px;
+}
+
+#createB {
+    margin-top: 0px;
+    height: 7%;
+    width: 30%;
+}
+
+b {
+    font-size: 85%;
+    display: inline-block;
+    margin-top: 0px;
+    margin-right: 10%;
+    margin-bottom: 0px;
+}
+
+#link {
+    background-color: #AAA;
+    padding: 1%;
+    width: 99%;
+    height: 15%;
+    border: 1px solid black;
+}
+
+#canvas {
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
+}
