@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/img/logo.ico" type="image/ico" sizes="25x25">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/Games/signUp(fun).css">
+    <title>Sign Up (fun)</title>
+</head>
+
+<body translate="no">
+    <nav class="navbar navbar-expand-lg navbar-light top-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link custom-navbar-title cs-academy-title" href="logo.html">CS
+                        Academy</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: lime!important; " href="Home.html"><i
+                            class="fas fa-home"></i> Home </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle custom-navbar-button" style="color: red; " href="#" id="GamesDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-gamepad"></i> Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="GamesDropdown">
+                        <a class="dropdown-item" href="ballGame.html">Dot Runner Game</a>
+                        <a class="dropdown-item" href="snakeGame.html">Snake Game</a>
+                        <a class="dropdown-item" href="archerGame.html">Archer Game</a>
+                        <a class="dropdown-item" href="turnOnTheLightGame.html">Turn On The Light Game</a>
+                        <a class="dropdown-item" href="blockGame.html">Blocks Game</a>
+                        <a class="dropdown-item" href="signUp(fun).html">Sign Up Game</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle custom-navbar-button" style="color: yellow; " href="#" id="AnimationDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-video"></i> Animations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="AnimationDropdown">
+                        <a class="dropdown-item" href="tunelAnimation.html">Tunel Animation</a>
+                        <a class="dropdown-item" href="gravityAnimation.html">Gravity Animation</a>
+                        <a class="dropdown-item" href="forcefieldAnimation.html">Force Field Animation</a>
+                        <a class="dropdown-item" href="catAnimation.html">Cat Walk Animation</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-link dropdown-toggle inner-custom-dropdown" id="GamesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Editors...
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="GamesDropdown" style="left: 160px; top: 100px; ">
+                            <h6 class="dropdown-header"><i class="fas fa-pencil-alt"></i> Make Your Own Animation</h6>
+                            <a class="dropdown-item" href="editor.html">HTML/CSS/JS Editor</a>
+                            <a class="dropdown-item" href="animationEditor.html">Animation Editor</a>
+                            <a class="dropdown-item disabled" style="color:#5c5e5f !important; cursor: not-allowed; ">More
+                                Coming
+                                Soon...</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: aqua!important; " href="learnCoding.html"><i
+                            class="fas fa-code"></i> Learn about Coding</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: rgb(252, 151, 0); " href="services.html"><i
+                            class="fas fa-wrench"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button sign-up-button" href="signUp.html"><i
+                            class="fas fa-user"></i>
+                        Sign Up</a></li>
+                <input type="text" class="navsearchbar searchbar" placeholder="Search..">
+            </ul>
+        </div>
+    </nav>
+
+    <form class="form" action="post" method="post">
+        <h1>Sign up</h1>
+        <div class="signup__field field-input field-username">
+            <label for="first_name" class="label">Username</label>
+            <span class="first_name_placeholder"></span>
+            <input type="text" name="first_name" id="first_name" class="input-field" maxlength="10">
+            <div class="message">Keyboard broken ?</div>
+        </div>
+        <div class="signup__field field-input field-password">
+            <label for="password" class="label">Password</label>
+            <span class="first_name_placeholder"></span>
+            <input type="password" name="password" id="password" class="input-field" maxlength="10">
+            <div class="error">Password too weak</div>
+        </div>
+        <fieldset>
+            <legend>Favorites</legend>
+            <div class="signup__field field-select">
+                <label class="label" for="fav_color">What's your favorite color?</label>
+                <div class="select-field">
+                    <select name="fav_color" id="fav_color" class="select-field__menu">
+                        <option>Please select an option</option>
+                        <option value="Red">Red</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Green">Green</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Purple">Purple</option>
+                    </select>
+                    <span id="currentColor"></span>
+                </div>
+            </div>
+            <div class="signup__field field-radio">
+                <div class="label">What's your favorite cartoon character?</div>
+                <input type="radio" value="leo" id="nt_leo" name="ninja_turtle">
+                <label for="nt_leo"><span></span>Bugs Bunny</label>
+                <input type="radio" value="leo" id="nt_mikey" name="ninja_turtle">
+                <label for="nt_mikey"><span></span>Mikey Mouse</label>
+                <input type="radio" value="donnie" id="nt_donnie" name="ninja_turtle">
+                <label for="nt_donnie"><span></span>Dora The Explorer</label>
+                <input type="radio" value="raph" id="nt_raph" name="ninja_turtle">
+                <label for="nt_raph"><span></span>Stewie Griffin</label>
+            </div>
+            <div class="message">Sorry, there was only 1 possible answer.</div>
+        </fieldset>
+        <div class="signup__field field-amazing">
+            <input type="checkbox" id="amazing" name="amazing">
+            <label for="amazing" id="amazing-text"><span></span>
+                <div>I agree, these were not my choices and this form is broken</div>
+            </label>
+        </div>
+        <div class="signup__button">
+            <button class="button" type="submit">Signup</button>
+        </div>
+    </form>
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/Games/signUp(fun).js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/logo.ico" type="image/ico" sizes="25x25">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="assets/css/Animations/animationEditor.css">
+    <title>Animation Editor</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light top-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link custom-navbar-title cs-academy-title" href="logo.html">CS
+                        Academy</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: lime!important; " href="Home.html"><i
+                            class="fas fa-home"></i> Home </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle custom-navbar-button" style="color: red; " href="#" id="GamesDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-gamepad"></i> Games
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="GamesDropdown">
+                        <a class="dropdown-item" href="ballGame.html">Dot Runner Game</a>
+                        <a class="dropdown-item" href="snakeGame.html">Snake Game</a>
+                        <a class="dropdown-item" href="archerGame.html">Archer Game</a>
+                        <a class="dropdown-item" href="turnOnTheLightGame.html">Turn On The Light Game</a>
+                        <a class="dropdown-item" href="blockGame.html">Blocks Game</a>
+                        <a class="dropdown-item" href="signUp(fun).html">Sign Up Game</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle custom-navbar-button" style="color: yellow; " href="#" id="AnimationDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-video"></i> Animations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="AnimationDropdown">
+                        <a class="dropdown-item" href="tunelAnimation.html">Tunel Animation</a>
+                        <a class="dropdown-item" href="gravityAnimation.html">Gravity Animation</a>
+                        <a class="dropdown-item" href="forcefieldAnimation.html">Force Field Animation</a>
+                        <a class="dropdown-item" href="catAnimation.html">Cat Walk Animation</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-link dropdown-toggle inner-custom-dropdown" id="GamesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Editors...
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="GamesDropdown" style="left: 160px; top: 100px; ">
+                            <h6 class="dropdown-header"><i class="fas fa-pencil-alt"></i> Make Your Own Animation</h6>
+                            <a class="dropdown-item" href="editor.html">HTML/CSS/JS Editor</a>
+                            <a class="dropdown-item" href="animationEditor.html">Animation Editor</a>
+                            <a class="dropdown-item disabled" style="color:#5c5e5f !important; cursor: not-allowed; ">More
+                                Coming
+                                Soon...</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: aqua!important; " href="learnCoding.html"><i
+                            class="fas fa-code"></i> Learn about Coding</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button" style="color: rgb(252, 151, 0); " href="services.html"><i
+                            class="fas fa-wrench"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link custom-navbar-button sign-up-button" href="signUp.html"><i
+                            class="fas fa-user"></i>
+                        Sign Up</a></li>
+                <input type="text" class="navsearchbar searchbar" placeholder="Search..">
+            </ul>
+        </div>
+    </nav>
+
+    <button id="help" onclick="help()">
+        ❓
+    </button>
+    <button id="settings" onclick="openSettings()">
+        ⚙️
+    </button>
+
+    <div id="settingsmenu" onclick="getArr()">
+
+        <button id="close" onclick="openSettings()">
+            ❎
+        </button>
+
+        <p>settings</p>
+
+        <p>grid</p>
+        <button id="toggleGrid" onclick="showGrid = !showGrid">
+            toggle grid
+        </button>
+
+        <button id="toggleOnion" onclick="onionskin = !onionskin">
+            toggle onionskin
+        </button>
+
+        <input type="number" id="gridSize" placeholder="... x ..." value="16" onchange="changeSize()">
+
+        <p>video</p>
+
+        <button id="toggleLoop" onclick="loop = !loop">
+            toggle loop
+        </button>
+
+        <p>fps</p>
+
+        <input type="number" id="fps" placeholder="frames per second" value="12">
+
+        <p>window</p>
+
+        <button id="mode" onclick="toggleMode()">
+            light mode
+        </button>
+
+        <p>save</p>
+
+        <input type="text" id="get" value="Create something">
+
+        <p>load</p>
+
+        <input type="text" id="stringInp" placeholder="paste the string here" value="12@16_ |0-0-#63ad2c| |1-0-#63ad2c||1-1-#63ad2c||2-0-#63ad2c||2-1-#63ad2c| |2-2-#63ad2c||2-3-#63ad2c||3-2-#63ad2c||3-3-#63ad2c| |3-5-#63ad2c||3-6-#63ad2c||4-5-#63ad2c||4-6-#63ad2c| |4-9-#63ad2c||4-10-#63ad2c||5-9-#63ad2c||5-10-#63ad2c| |5-14-#63ad2c||5-15-#63ad2c||6-14-#63ad2c||6-15-#63ad2c| |6-13-#63ad2c||6-14-#63ad2c||7-13-#63ad2c||7-14-#63ad2c| |7-10-#63ad2c||7-11-#63ad2c||8-10-#63ad2c||8-11-#63ad2c| |9-7-#63ad2c||9-8-#63ad2c||10-7-#63ad2c||10-8-#63ad2c| |12-6-#63ad2c||12-7-#63ad2c||13-6-#63ad2c||13-7-#63ad2c| |15-7-#63ad2c||15-8-#63ad2c| ">
+        <button id="load" onclick="load(document.querySelector('#stringInp').value)">
+            load video
+        </button>
+    </div>
+    <div id="main">
+        <p id="pageNum"></p>
+        <div id="controls">
+            <button id="previous" onclick="cF == 0 ? cF = cF = frames.length - 1 : cF--">
+                ⏮️Previous Frame
+            </button>
+            <button id="reverse" onclick="reverse()">
+                ◀️Play Reverse
+            </button>
+            <button id="pause" onclick="pause()">
+                ⏸️Pause
+            </button>
+            <button id="play" onclick="play()">
+                ▶️Play
+            </button>
+            <button id="next" onclick="cF == frames.length - 1 ? new Frame() : cF++">
+                ⏭️Next Frame
+            </button>
+        </div>
+
+        <div id="drawing">
+
+            <button id="picker" onclick="tool = 'picker'" class="inactive">
+                🖊️Color Picker
+            </button>
+            <button id="pencil" onclick="tool = 'pencil'" class="inactive">
+                ✏️Pencil
+            </button>
+            <input type="color" id="color">
+            <button id="eraser" onclick="tool = 'eraser'" class="inactive">
+                📘Eraser
+            </button>
+            <button id="clear" onclick="clearGrid(cF)">
+                🔲Clear Frame
+            </button>
+        </div>
+
+        <div id="actions">
+            <button id="new" onclick="newFrame()">
+                🔅New Frame
+            </button>
+            <button id="copy" onclick="copy()">
+                📥Copy Frame
+            </button>
+            <button id="paste" onclick="paste()">
+                📤Paste Frame
+            </button>
+            <button id="delete" onclick="deleteFrame(cF)">
+                🗑️Delete Frame
+            </button>
+
+        </div>
+    </div>
+    <script src="assets/js/Animations/animationEditor.js"></script>
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+</body>
+
+</html>
